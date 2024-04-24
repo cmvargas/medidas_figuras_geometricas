@@ -61,9 +61,52 @@ class Cilindro:
                 sys.exit()
             elif numero not in [0,1]:
                 sys.exit()
+class Triangulo:
+    def medidas(self, base, altura):
+        resultado = (1/2) * (base*altura)
+        print("El area del triangulo es de {0} unidades al cuadrado\n".format(resultado))
+    def opciones(self):
+        text = "Opciones :\n 1. Calcular medidas \n0. Salir\n"
+        numero = int(input(text))
+        if numero ==0:
+            sys.exit()
+        base = int(input("Digite la base:\n"))
+        altura = int(input("Digite la altura:\n"))
+        return numero, base, altura
+    def principal(self):
+        numero = 4
+        while numero !=0:
+            numero, base, altura = self.opciones()
+            if numero == 1:
+                self.medidas(base, altura)
+            elif numero ==0:
+                sys.exit()
+            elif numero not in [0,1]:
+                sys.exit()
 
+class Cubo: 
+    def medidas(self, lado):
+        resultado = lado*lado*lado
+        print("El volumen del cubo  es de {0} unidades al cubo\n".format(resultado))
+    def opciones(self):
+        text = "Opciones :\n 1. Calcular medidas \n0. Salir\n"
+        numero = int(input(text))
+        if numero ==0:
+            sys.exit()
+        lado = int(input("Digite la medida del lado:\n"))
+        return numero, lado
+    def principal(self):
+        numero = 4
+        while numero !=0:
+            numero, lado = self.opciones()
+            if numero == 1:
+                self.medidas(lado)
+            elif numero ==0:
+                sys.exit()
+            elif numero not in [0,1]:
+                sys.exit()
 if __name__ == "__main__":
-    text = "ingrese la figura su respectivo medicion:\n 1.Rectangulo\n 2. Cilindro\n 0.Salir\n"
+    text = "ingrese la figura su respectivo medicion:\n 1.Rectangulo\n 2. Cilindro\n  3.Triangulo\n 4.Cubo\n 0.Salir\n"
     numero = int(input(text))
     if numero==1: 
         rectangulo = Rectangulo()
@@ -71,5 +114,11 @@ if __name__ == "__main__":
     elif numero ==2:
         cilindro=Cilindro()
         cilindro.principal()
+    elif numero ==3:
+        triangulo=Triangulo()
+        triangulo.principal()
+    elif numero ==4:
+        cubo=Cubo()
+        cubo.principal()
     elif numero == 0:
         sys.exit()
